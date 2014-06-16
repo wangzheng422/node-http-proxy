@@ -261,6 +261,25 @@ proxyServer.on('upgrade', function (req, socket, head) {
 proxyServer.listen(8015);
 ```
 
+### dump the content of request and response
+
+you can dump the content of request and response
+
+```js
+
+proxy.web(req, res, {
+	target: req.url,
+	dump: true
+});
+
+proxy.on('end', function (req, res, proxyRes) {
+	console.log('req:'+req.url);
+	console.log('req:'+req.data);
+	console.log('res:'+res.data);
+});
+
+```
+
 ### Contributing and Issues
 
 * Search on Google/Github
